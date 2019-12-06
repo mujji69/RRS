@@ -1,0 +1,59 @@
+
+.bg {
+  /* The image used */
+  background-image: url('/images/light.jpg');
+
+  /* Full height */
+  /* height: 100%;  */
+  height: 100vh;
+  min-height: 500px;
+  /* Center and scale the image nicely */
+  background-repeat: no-repeat;
+  /* background-position: center; */
+  background-size: cover;
+  margin:auto;
+  padding: 0;
+}
+
+.basha {
+  /* The image used */
+  background-image: url('/images/nature.jpg');
+
+  /* Full height */
+  /* height: 100%;  */
+  height: 100vh;
+  min-height: 500px;
+  /* Center and scale the image nicely */
+  background-repeat: no-repeat;
+  /* background-position: center; */
+  background-size: cover;
+  margin:auto;
+  padding: 0;
+}
+
+.inp input{
+  height:30px;
+}
+
+.carousel-inner img {
+  width: 100%;
+  height: 100%;
+}
+
+.log {
+  border: none;
+  outline: none;
+  padding: 10px 16px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+/* Style the active class (and buttons on mouse-over) */
+.active, .log:hover {
+  background-color: #666;
+  color: white;
+}
+.carousel-inner img {
+  width: 100%;
+  height: 270px;
+}
