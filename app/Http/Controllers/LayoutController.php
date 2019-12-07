@@ -7,6 +7,7 @@ use App\Owner;
 use Request; 
 use App\Reserve;
 use DateTime;
+
 class LayoutController extends Controller
 {
     public function layout(){
@@ -19,6 +20,8 @@ class LayoutController extends Controller
         $all = Owner::find($datas['id'])->reserves;
         //  $tables = $all['table_no'];
        //  dd($all[0]->table_no);
+      
+      // available tables
        $array[] = null; 
     
        $b = 0;
@@ -50,25 +53,59 @@ class LayoutController extends Controller
            }
            $count = 0 ;
        }
-       $all = Owner::find($datas['id']);
+       // end of available tables
 
-       $booking_time = $datas['time'];
-$from = $all->open_from;
-$to = $all->open_to;
-// $date1 = DateTime::createFromFormat('H\h i\m s\s', $current_time);
-// $date2 = DateTime::createFromFormat('H\h i\m s\s', $sunrise);
-// $date3 = DateTime::createFromFormat('H\h i\m s\s', $sunset);
-if ($booking_time > $from && $booking_time < $to)
-{
+       // check days
+       $count1 = 0 ;
+       $ts = strtotime($datas['date']);
+    
+       $d = date('l', $ts);
+       $days = Owner::find($datas['id'])->days;
+        // dd($days[0]->day);
 
-   
-}
-else {
-    return redirect()->back()->withInput(Request::only('date','persons'))
-    ->with('message','please check the timings in details button first');
-}
-    //    dd($array);
+       for($k=0; $k<$days->count(); $k++){
+        
+           if(strtolower($d) == $days[$k]->day){
+            // dd('jani');   
+            $count1 = 1;
+           }
+       }
 
-        return view('customer.layout',compact('datas','content','array'));;
+       // end of check days
+
+       $allData = Owner::find($datas['id']);
+
+        $booking_time = $datas['time'];
+        $from = $allData->open_from;
+        $to = $allData->open_to;
+        if($this->checkTime($booking_time,$from,$to) && $count1 == 1)
+        return view('customer.layout',compact('datas','content','array'));
+        else {
+            return redirect()->back()->withInput(Request::only('persons'))
+            ->with('message','Invalid Date or Time, please check the details');
+        
+        }
     }
+    
+    protected function checkTime($booking_time,$from,$to){
+
+        $times = strtotime($booking_time);
+        $booking_time = date('H:i:s', $times);
+        $booking_time = DateTime::createFromFormat('!H:i:s', $booking_time);
+        $from = DateTime::createFromFormat('!H:i:s', $from);
+        $to = DateTime::createFromFormat('!H:i:s', $to);
+        
+        if($from > $to)
+         $to->modify('+1 day');
+        
+         if (($booking_time >= $from && $booking_time <= $to)  || ($booking_time->modify('+1 day') >= $from && $booking_time <= $to))
+        {
+        return true;
+        
+        }
+        else 
+        return false;
+        
+    }
+
 }

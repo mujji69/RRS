@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>KEditor - Kademi Content Editor</title>
+        <title>Layout</title>
         <link rel="stylesheet" type="text/css" href="{{asset('/plugins/bootstrap-3.4.1/css/bootstrap.min.css')}}" data-type="keditor-style" />
         <link rel="stylesheet" type="text/css" href="{{asset('/plugins/font-awesome-4.7.0/css/font-awesome.min.css')}}" data-type="keditor-style" />
         <!-- Start of KEditor styles -->
@@ -15,12 +15,15 @@
     </head>
     
     <body>
+        
         <div data-keditor="html">
-            <div id="content-area"></div>
+            <div id="content-area">
+                {!! $data->layout !!}
+            </div>
             
         </div>
         <div class='text-center' style='padding-bottom:50px;padding-top:30px;'>
-        <button class='btn btn-success' id='save'><h1>Create</h1></button>
+        <button class='btn btn-success' id='save'><h1>Update Layout</h1></button>
         </div>
         
 
@@ -40,11 +43,9 @@
         <script type="text/javascript" src="{{asset('/js/examples.js')}}"></script>
         <script type="text/javascript" data-keditor="script">
             $(function () {
-            $('#content-area').keditor({
-                title: 'Jan Rambo Layout Builder'
+                $('#content-area').keditor();
             });
-            // $('keditor-topbar-title').setAttribute('title','afaf'); 
-            });
+
             $.ajaxSetup({
 
 headers: {
@@ -74,13 +75,15 @@ $.ajax({
 
    type:'POST',
 
-   url:"{{ route('store') }}",
+   url:"{{ route('update') }}",
 
    data:{
        _token: "{{ csrf_token() }}",
        content:content},
 
    success:function(data){
+
+    window.alert('Layout updated');     
     window.location.href = "{{ route('owner') }}";
     console.log(data.success);
    },
@@ -94,6 +97,7 @@ $.ajax({
 
 
 });
+       
         </script>
     </body>
 </html>

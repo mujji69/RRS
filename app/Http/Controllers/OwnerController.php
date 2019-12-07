@@ -45,6 +45,20 @@ class OwnerController extends Controller
         
         return view('kedit');
     }
+
+    public function editLayout(){
+        $data = Owner::find(Auth::guard('owner')->user()->id)->layouts;
+        return view('owner.editLayout',compact('data'));
+    }
+
+    public function updateLayout(Request $request){
+        $model = Owner::find(Auth::guard('owner')->user()->id)->layouts;
+        $data = $request->all();
+        $model->layout =  $request['content'];
+        $model->save();
+        return response()->json(['success'=> 'vip hogya jani']);
+     
+    }
    
     public function destroy($id)
     {

@@ -45,3 +45,6 @@ Route::post('store','OwnerController@storeLayout')->name('store');
 Route::get('papi','RestaurantController@papi');
 
 Route::post('total','RestaurantController@total')->name('total');
+
+Route::get('editLayout','OwnerController@editLayout');
+Route::post('updateLayout','OwnerController@updateLayout')->name('update');
