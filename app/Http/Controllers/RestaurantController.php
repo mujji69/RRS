@@ -25,10 +25,11 @@ class RestaurantController extends Controller
         $photos = Owner::find($id)->photos;
         $content = Owner::find($id)->layouts;
         $days = Owner::find($id)->days;
+        $reserves = Owner::find($id)->reserves;
         $lay = $content->layout;
         //$images = DB::table('menus')->where('rest_id',$id);
         //dd($images[0]->images);
-        return view('customer.book',compact('data','images','photos','lay','days'));
+        return view('customer.book',compact('data','images','photos','lay','days','reserves'));
     }
 
     

@@ -18,12 +18,13 @@ class LayoutController extends Controller
         $content  = Owner::find($datas['id'])->layouts;
         // $lay = $content->layout;
         $all = Owner::find($datas['id'])->reserves;
+        $rest = Owner::find($datas['id']);
         //  $tables = $all['table_no'];
        //  dd($all[0]->table_no);
       
       // available tables
-       $array[] = null; 
-    
+     //  $array[] = 0; 
+        $array[0] = null;
        $b = 0;
        $count = 0;
        for($i=1;$i<=$content->total_tables;$i++){
@@ -36,6 +37,8 @@ class LayoutController extends Controller
                 $timestamp2 = strtotime($all[$j]->time) - 60*60;
                 $before = date('H:i:s', $timestamp2);
 
+                if($datas['date'] == $all[$j]->date){
+                    
                 if($datas['time'] == $all[$j]->time 
                 || ($datas['time'] > $all[$j]->time && $datas['time'] < $after) 
                 || ($datas['time'] < $all[$j]->time && $datas['time'] > $before)){
@@ -43,7 +46,7 @@ class LayoutController extends Controller
                     $count = 1;
                 
                 }
-               
+            }
                 
                }
            }
@@ -53,6 +56,7 @@ class LayoutController extends Controller
            }
            $count = 0 ;
        }
+      // dd($array);
        // end of available tables
 
        // check days
@@ -79,7 +83,7 @@ class LayoutController extends Controller
         $from = $allData->open_from;
         $to = $allData->open_to;
         if($this->checkTime($booking_time,$from,$to) && $count1 == 1)
-        return view('customer.layout',compact('datas','content','array'));
+        return view('customer.layout',compact('datas','content','array','rest'));
         else {
             return redirect()->back()->withInput(Request::only('persons'))
             ->with('message','Invalid Date or Time, please check the details');

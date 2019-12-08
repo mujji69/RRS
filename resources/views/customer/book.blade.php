@@ -13,12 +13,14 @@
 </div>
 
 <div class='bg'>
-    <div class='container' style='padding-top:150px;'>  
+    <div class='' style='padding-top:150px;'>  
     @if ($message = Session::get('message'))
       <div class="alert alert-danger">
         <p>{{$message}}</p>
       </div>
     @endif  
+    <div class='row'>
+    <div class="col-md-8">
         <div class='card'>
             <div class='card-header'><h4><strong>{{$data->name}}</strong></h4></div>
                 <div class='card-body' style='height:250px;'>
@@ -207,6 +209,32 @@
                    
             </div>
         </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">Reserved</div>
+                <div class="card-body">
+                    <table class='table'>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($reserves as $reserve)
+                            <tr>
+                                <td>{{$reserve->date}}</td>
+                                <td>{{$reserve->time}}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        </div>
+        
     </div>    
     <!-- <img src="/images/zoro.jpg" alt="" id='hide'> -->
 
