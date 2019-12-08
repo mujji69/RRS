@@ -157,7 +157,11 @@
                                         </div>
                                         
                                         <!-- Modal body -->
-                                        <div class="modal-body d-flex justify-content-between">
+                                        <div class="modal-body">
+                                            <p><b>* An hour before and after the reservation will be unavailable
+                                               to cater latecomings and preparaion for the next reservation.</b>
+                                            </p> 
+                                            <div class='d-flex justify-content-between'>
                                             <div>
                                                 <h4>Timings</h4>
                                                 <label for="from">From:</label>
@@ -170,6 +174,7 @@
                                                 @foreach($days as $day)
                                                 <p>{{$day->day}}</p>
                                                 @endforeach
+                                            </div>
                                             </div>
                                         </div>
                                         
