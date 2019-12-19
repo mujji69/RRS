@@ -97,8 +97,15 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    @auth('web')
+                                    <a href="{{url('myBookings')}}" class='dropdown-item'>My Bookings</a>
+                                    @endauth                                    
+
                                      @auth('owner')
+                                    <a href="{{url('editProfile')}}" class='dropdown-item'>Edit Profile</a>
                                     <a href="{{url('editLayout')}}" class='dropdown-item'>Edit Layout</a>
+                                    <a href="{{url('editMenu')}}" class='dropdown-item'>Edit Menu</a>
+                                    
                                     @endauth   
                                 
                                    <a class="dropdown-item" href="{{ route('logout') }}"

@@ -48,3 +48,12 @@ Route::post('total','RestaurantController@total')->name('total');
 
 Route::get('editLayout','OwnerController@editLayout');
 Route::post('updateLayout','OwnerController@updateLayout')->name('update');
+
+Route::get('editProfile','OwnerController@editProfile');
+Route::post('updateProfile','OwnerController@updateProfile')->name('updateProfile');
+
+Route::get('editMenu','OwnerController@editMenu');
+Route::post('updateMenu','OwnerController@updateMenu')->name('updateMenu');
+Route::post('removeMenu/{id}','OwnerController@removeMenu');
+
+Route::get('myBookings','RestaurantController@myBookings');

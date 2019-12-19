@@ -32,7 +32,10 @@ class RestaurantController extends Controller
         return view('customer.book',compact('data','images','photos','lay','days','reserves'));
     }
 
-    
+    public function myBookings(){
+        $datas = User::find(Auth::user()->id)->reserves;
+        return view('customer.myBookings',compact('datas'));
+    }
 
     public function papi(){
         $content  = Owner::find(51,'id')->layouts;
