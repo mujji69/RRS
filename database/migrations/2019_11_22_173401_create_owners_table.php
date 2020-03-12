@@ -21,6 +21,8 @@ class CreateOwnersTable extends Migration
             $table->string('city');
             $table->string('address')->unique();
             $table->string('password');
+            $table->time('open_from');
+            $table->time('open_to');
             $table->rememberToken();
             $table->timestamps();
         });
