@@ -34,6 +34,7 @@ class RestaurantController extends Controller
 
     public function myBookings(){
         $datas = User::find(Auth::user()->id)->reserves;
+        
         return view('customer.myBookings',compact('datas'));
     }
 

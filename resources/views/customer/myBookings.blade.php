@@ -11,7 +11,7 @@
     
                 
                 <th>CustomerID</th>
-                <th>RestaurantID</th>
+                <th>Restaurant Name</th>
                 <th>Date</th>
                 <th>Time</th>
                 <th>No Of Persons</th>

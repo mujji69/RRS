@@ -10,5 +10,8 @@ class Reserve extends Model
         'user_id','owner_id','date','time','no_of_persons','table_no',
     ];
 
-    
+    public function owners()
+    {
+        return $this->hasMany('App\Owner');
+    }
 }

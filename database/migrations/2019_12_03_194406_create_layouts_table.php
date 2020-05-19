@@ -17,6 +17,7 @@ class CreateLayoutsTable extends Migration
             $table->bigIncrements('id');
             $table->integer('owner_id');
             $table->text('layout');
+            $table->integer('total_tables');
             $table->timestamps();
         });
     }
