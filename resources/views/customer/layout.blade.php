@@ -1,4 +1,5 @@
 @extends('layouts.app')
+<link href="{{ asset('css/layout.css') }}" rel="stylesheet">
 
 @section('content')
 <style>
@@ -14,7 +15,7 @@
 
 </div>
 <div>
-<div class='flex-center position-ref full-height total'>
+<div class='flex-center position-ref full-height total pt-4'>
    {!!$content->layout!!}
 </div>
 <form action="{{url('reserve',$datas['id'])}}" method='POST'>

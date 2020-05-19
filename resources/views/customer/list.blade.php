@@ -1,4 +1,5 @@
 @extends('layouts.app')
+<link href="{{ asset('css/rest.css') }}" rel="stylesheet">
 
 @section('content')
 <div class='float-right pr-4 py-4'>

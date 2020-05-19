@@ -1,4 +1,5 @@
 @extends('layouts.app')
+<link href="{{ asset('css/layout.css') }}" rel="stylesheet">
 
 @section('content')
 <div class='container pt-4'>

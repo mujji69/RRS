@@ -1,0 +1,20 @@
+/* login-bg */
+#app{
+    background-image: linear-gradient(to right, #5b5f63,white);
+    height: 100vh;
+    min-height: 1000px;
+    /* Center and scale the image nicely */
+    background-repeat: no-repeat;
+    /* background-position: center; */
+    background-size: cover;
+    margin:auto;
+    padding: 0;
+  }
+
+ td a{
+   color:blue;
+   font-size: 20px;
+ }
+ #example_length{
+   color:white;
+ }

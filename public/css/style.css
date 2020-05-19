@@ -1,23 +1,10 @@
-
-.bg {
-  /* The image used */
-  background-image: url('/images/light.jpg');
-
-  /* Full height */
-  /* height: 100%;  */
-  height: 100vh;
-  min-height: 500px;
-  /* Center and scale the image nicely */
-  background-repeat: no-repeat;
-  /* background-position: center; */
-  background-size: cover;
-  margin:auto;
-  padding: 0;
+body{
+  background-color:white;
 }
 
-.basha {
-  /* The image used */
-  background-image: url('/images/nature.jpg');
+/* landing */
+.landing {
+  background-image: url('/images/landing.jpg');
 
   /* Full height */
   /* height: 100%;  */
@@ -29,6 +16,18 @@
   background-size: cover;
   margin:auto;
   padding: 0;
+  background-blend-mode: darken;
+}
+
+
+/* landing */
+
+.navbar-trans{
+  background:transparent;
+}
+.nav-link{
+  font-size:20px;
+  color:white;
 }
 
 .inp input{
@@ -50,8 +49,9 @@
 
 /* Style the active class (and buttons on mouse-over) */
 .active, .log:hover {
-  background-color: #666;
-  color: white;
+  background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1));
+  
+  color: black;
 }
 .carousel-inner img {
   width: 100%;
@@ -68,3 +68,45 @@
 .image:hover {
   box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
 }
+/* heading */
+.gradient-text {
+  /* Fallback: Set a background color. */
+  background-color:#9c0303;
+  
+  /* Create the gradient. */
+  background-image: linear-gradient(45deg,#9c0303,#ffff);
+  
+  /* Set the background size and repeat properties. */
+  background-size: 100%;
+  background-repeat: repeat;
+
+  /* Use the text as a mask for the background. */
+  /* This will show the gradient as a text color rather than element bg. */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+}
+
+
+/* Style the rest of the page. */
+
+
+.title h1 {
+  font-family: "Archivo Black", sans-serif;
+  font-weight: normal;
+  font-size: 6em;
+  text-align: center;
+  margin-bottom: 0;
+  margin-bottom: -0.25em;
+}
+
+.navbar-brand h4 {
+  font-family: "Archivo Black", sans-serif;
+  font-weight: normal;
+  font-size: 1em;
+  text-align: center;
+  margin-bottom: 0;
+  margin-bottom: -0.25em;
+}
+/* heading */

@@ -5,15 +5,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Laravel</title>
+     <script src="{{ asset('js/app.js') }}" ></script> 
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
+        <link href="https://fonts.googleapis.com/css?family=Archivo+Black&display=swap" rel="stylesheet">
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
         <!-- Styles -->
         <style>
             html, body {
                 background-color: #fff;
-                color: #636b6f;
+                color: red;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
                 height: 100vh;
@@ -44,14 +47,12 @@
                 text-align: center;
             }
 
-            .title {
-                font-size: 84px;
-            }
+             
 
             .links > a {
-                color: #636b6f;
+                color: #fff;
                 padding: 0 25px;
-                font-size: 13px;
+                font-size: 20px;
                 font-weight: 600;
                 letter-spacing: .1rem;
                 text-decoration: none;
@@ -64,7 +65,8 @@
         </style>
     </head>
     <body>
-           
+
+         <div class='landing'>  
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
@@ -74,7 +76,7 @@
                         <a href="{{ route('login') }}">Login</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
+                            <a href="{{ route('register') }}" class='btn btn-primary'>Register</a>
                         @endif
                     @endauth
                 </div>
@@ -83,11 +85,15 @@
        
             <div class="content">
                 <div class="title m-b-md">
-                    Jan Rambo
+                    <div class='crest'>   
+                        <img src="images/uchiha.png" alt="">
+                    </div>
+                   <h1 class='gradient-text'>UCHIHA</h1> 
                 </div>
 
 
             </div>
+        </div>
         </div>
     </body>
 </html>

@@ -35,10 +35,12 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md shadow-sm navbar-trans">
             <div class="container">
-                <a class="navbar-brand pr-3" style='border-right:1px solid black;' href="{{ url('/') }}">
-                    Jan Rambo
+                <a class="navbar-brand pr-3 d-flex" style='border-right:1px solid black;' href="{{ url('/') }}">
+                   
+                <img src="/images/logo.png" alt=""> <h4 class='pl-1 gradient-text'>UCHIHA</h4>
+                    
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -86,8 +88,8 @@
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                <li class="nav-item pl-2">
+                                    <a class="nav-link btn btn-primary" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
